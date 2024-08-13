@@ -1,7 +1,7 @@
 {
-  "name": "eslint-tsc",
+  "name": "esbuild-tsc",
   "description": "An esbuild plugin which uses tsc to compile typescript files",
-  "version": "0.5.0",
+  "version": "1.0.0",
   "author": "Panates",
   "license": "MIT",
   "dependencies": {
@@ -65,7 +65,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/panates/eslint-tsc.git"
+    "url": "https://github.com/panates/esbuild-tsc.git"
   },
   "engines": {
     "node": ">=16.0"
