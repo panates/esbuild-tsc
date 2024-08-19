@@ -1,7 +1,7 @@
 {
   "name": "esbuild-tsc",
   "description": "An esbuild plugin which uses tsc to compile typescript files",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": "Panates",
   "license": "MIT",
   "dependencies": {},
