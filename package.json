@@ -4,9 +4,7 @@
   "version": "1.0.0",
   "author": "Panates",
   "license": "MIT",
-  "dependencies": {
-    "strip-comments": "^2.0.1"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@panates/eslint-config": "^1.0.17",
     "@panates/eslint-config-ts": "^1.0.17",

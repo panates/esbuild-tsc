@@ -1,63 +1,63 @@
 # esbuild-tsc
 
-An esbuild plugin which uses tsc to compile typescript files
+[![NPM Version][npm-image]][npm-url]
+[![NPM Downloads][downloads-image]][downloads-url]
+[![CircleCI][circleci-image]][circleci-url]
+[![Test Coverage][coveralls-image]][coveralls-url]
 
-Note: Originally inspired from [esbuild-plugin-tsc](https://www.npmjs.com/package/esbuild-plugin-tsc), Thanks to *Thomas Schaaf*
+
+## About
+
+An ESBuild plugin which uses tsc to compile typescript files
 
 ## Motivation
 
-Esbuild natively supports typescript files - so if you are not using exotic typescript features this plugin is not meant for you!
+Esbuild natively supports typescript files, but not TypeScript decorators. 
+TypeScript decorators are different from EcmaScript decorators. 
+If TypeScript decorators are used in your project, tsc should be used to transpile.
 
-I wanted to use [`typescripts emitDecoratorMetadata`](https://www.typescriptlang.org/tsconfig#emitDecoratorMetadata) feature, 
-which is [not supported by esbuild](https://github.com/evanw/esbuild/issues/257). 
-If you are only using typescript decorators in some files, this plugin allows you to convert only 
-the files containing decorators and lets esbuild handle all other files.
-If for some reason you want to use typescripts compiler for all files 
-you can simple set the `force` option.
-
-## Basic Usage
-
-1. Install this plugin in your project:
+## Installation
 
 ```sh
 npm install --save-dev esbuild-tsc typescript
 ```
 
-2. Add this plugin to your esbuild build script:
+## Basic Usage
 
-Javascript:
-```diff
-+const esbuildPluginTsc = require('esbuild-tsc');
-...
-esbuild.build({
-  ...
-  plugins: [
-+    esbuildPluginTsc(),
-  ],
-})
-```
+Add this plugin to your esbuild build script:
 
 Typescript:
-```diff
-+import esbuildPluginTsc from 'esbuild-plugin-tsc';
+```ts
+import esbuildPluginTsc from 'esbuild-tsc';
+
 ...
 esbuild.build({
   ...
   plugins: [
-+    esbuildPluginTsc(),
+    esbuildPluginTsc(options),
   ],
-})
+});
 ```
 
-## Config
+### Options
 
-```typescript
-esbuildPluginTsc({
-    // If empty, uses tsconfig.json
-    tsconfigPath?: string,
-    // If true, force compilation with tsc
-    force?: boolean,
-    // If true, enables tsx file support
-    tsx?: boolean
-})
-```
+**_tsconfigPath [string] _**: Path of the tsconfig json file.
+**_filter [RegExp | Function]_**: A RegExp or function to filter files.
+
+
+[npm-image]: https://img.shields.io/npm/v/esbuild-tsc.svg
+[npm-url]: https://npmjs.org/package/esbuild-tsc
+[circleci-image]: https://circleci.com/gh/panates/esbuild-tsc/tree/master.svg?style=shield
+[circleci-url]: https://circleci.com/gh/panates/esbuild-tsc/tree/master
+[coveralls-image]: https://img.shields.io/coveralls/panates/esbuild-tsc/master.svg
+[coveralls-url]: https://coveralls.io/r/panates/esbuild-tsc
+[downloads-image]: https://img.shields.io/npm/dm/esbuild-tsc.svg
+[downloads-url]: https://npmjs.org/package/esbuild-tsc
+[gitter-image]: https://badges.gitter.im/panates/esbuild-tsc.svg
+[gitter-url]: https://gitter.im/panates/esbuild-tsc?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
+[dependencies-image]: https://david-dm.org/panates/esbuild-tsc/status.svg
+[dependencies-url]:https://david-dm.org/panates/esbuild-tsc
+[devdependencies-image]: https://david-dm.org/panates/esbuild-tsc/dev-status.svg
+[devdependencies-url]:https://david-dm.org/panates/esbuild-tsc?type=dev
+[quality-image]: http://npm.packagequality.com/shield/esbuild-tsc.png
+[quality-url]: http://packagequality.com/#?package=esbuild-tsc
